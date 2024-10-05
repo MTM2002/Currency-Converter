@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CurrencySelect from "./CurrencySelect";
 
 export default function ConverterForm() {
   const [fromCurrency, setFromCurrency] = useState("EGP");
   const [toCurrency, setToCurrency] = useState("USD");
-  const [amount, setAmount] = useState(100);
+  const [amount, setAmount] = useState();
   const [result, setResult] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const handleSwapButton = () => {
@@ -31,7 +31,6 @@ export default function ConverterForm() {
     e.preventDefault();
     getExchangeRate();
   };
-  useEffect(() => getExchangeRate, []);
   return (
     <form className="currency-form" onSubmit={handleFormSubmit}>
       <div className="form-group">
